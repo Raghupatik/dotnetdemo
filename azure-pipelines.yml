@@ -5,6 +5,8 @@
 
 trigger:
 - develop
+- feature/*
+- master
 
 pool:
   name: Facebook
