@@ -9,7 +9,7 @@ trigger:
 - master
 
 pool:
-  name: Demo
+  name: batch26
 
 variables:
   buildConfiguration: 'Release'
@@ -28,12 +28,12 @@ stages:
     - script: dotnet publish -f $(dotNetFramework) -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
       displayName: Publish Project 
 
-    - task: Npm@1
-      displayName: 'Client Tests'
-      inputs:
-        command: 'custom'
-        workingDir: 'ClientApp'
-        customCommand: 'run test'
+ #   - task: Npm@1
+ #     displayName: 'Client Tests'
+#      inputs:
+ #       command: 'custom'
+#        workingDir: 'ClientApp'
+ #       customCommand: 'run test'
     
     - task: PublishBuildArtifacts@1
       inputs:
